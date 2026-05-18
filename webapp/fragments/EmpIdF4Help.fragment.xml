@@ -1,0 +1,105 @@
+
+
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="empIdDialog"
+        title="Employee Id(s)"
+       >
+
+       <Table id="tblEmployeeList" items="{oModel>/EmployeeSet}">
+
+    
+
+    <columns>
+
+        <Column id="colEmpId1">
+            <Text id="txtHdrEmpId" text="Employee Id"></Text>
+        </Column>
+
+        <Column id="colEmpName">
+            <Text id="txtHdrEmpName" text="Name"></Text>
+        </Column>
+
+        <Column id="colEmpDesig">
+            <Text id="txtHdrEmpDesig" text="Designation"></Text>
+        </Column>
+
+        <Column id="colEmpSkill">
+            <Text id="txtHdrEmpSkill" text="Skill"></Text>
+        </Column>
+
+        <Column id="colEmpEmail">
+            <Text id="txtHdrEmpEmail" text="Email"></Text>
+        </Column>
+
+        <Column id="colEmpStatus">
+            <Text id="txtHdrEmpStatus" text="Status"></Text>
+        </Column>
+
+        <Column id="colEmpSalary">
+            <Text id="txtHdrEmpSalary" text="Salary"></Text>
+        </Column>
+
+        <Column id="colEmpRating">
+            <Text id="txtHdrEmpRating" text="Rating"></Text>
+        </Column>
+
+    </columns>
+
+    <items>
+
+        <!-- it acts like a loop by point to the records -->
+
+        <ColumnListItem id="cliEmployeeItem" type="Active" press="onEmpIdItemPress">
+
+            <cells>
+
+                <Text id="txtEmpIdVal" text="{oModel>Empid}"></Text>
+
+                <Text id="txtEmpNameVal" text="{oModel>Name}"></Text>
+
+                <Text id="txtEmpDesigVal" text="{oModel>Desig}"></Text>
+
+                <Text id="txtEmpSkillVal" text="{oModel>Skill}"></Text>
+
+                <Text id="txtEmpEmailVal" text="{oModel>Email}"></Text>
+
+                <!-- <Text id="txtEmpStatusVal" text="{oModel>Status}"></Text> -->
+
+                <Text id="txtEmpSalaryVal" text="{oModel>Salary}"></Text>
+
+                <!-- Property binding example -->
+
+                <ObjectStatus
+                    id="objEmpStatus"
+                    text="{oModel>Status}"
+                    state="{path:'oModel>Status', formatter:'.f.formatStatus'}"
+                    inverted="true">
+                </ObjectStatus>
+
+                <Text
+                    id="txtEmpRatingVal"
+                    text="{path:'oModel>Rating', formatter:'.f.formatRating'}">
+                </Text>
+
+            </cells>
+
+        </ColumnListItem>
+
+    </items>
+
+</Table>
+
+        <endButton>
+            <Button
+                id="btnCloseDialog"
+                text="Close"
+                press="onCloseDialog"/>
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

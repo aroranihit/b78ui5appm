@@ -1,0 +1,21 @@
+<mvc:View controllerName="com.demo.app.project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="_IDGenPage" title="HI I am View 2" showNavButton="true" navButtonPress="onpiche">
+    <content>
+    <Text id="_IDGenText" text="Hi I am New Page" class="sapUiMediumMarginTop sapUiMediumMarginBegin"></Text>
+    </content>
+
+    
+
+    <footer>
+    <Bar id="_IDGenBar1" >
+    <contentLeft>
+    <Button id="_IDGenButton3" text="Go back" type = "Attention" press="onpiche"></Button>
+    </contentLeft>
+    </Bar>
+    </footer>
+    </Page>
+   
+</mvc:View>

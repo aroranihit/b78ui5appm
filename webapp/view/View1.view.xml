@@ -1,0 +1,483 @@
+<mvc:View controllerName="com.demo.app.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:l = "sap.ui.layout">
+    <Page id="page" title="{i18n>title}">
+    <content>
+
+   <Text id="_IDGenText1" text ="Welcome to sap ui5" width="100%" textAlign="Center" class="sapMH1FontSize"></Text>
+    <Label id="_IDGenLabel" text="Enter your name" class="sapUiMediumMarginBegin sapUiTinyMarginTop"></Label>
+    <Input id="_IDGenInput" width="30%" class="sapUiMediumMarginBegin" ></Input>
+
+    <Label id="_IDGenLabel1" text="Enter your Alignment" class="sapUiMediumMarginBegin sapUiTinyMarginTop"></Label>
+    <Input id="_IDGenInput1" width="30%" class="sapUiMediumMarginBegin" ></Input>
+
+    <Button id="_IDGenButton4" text="Sumbit" class = "sapUiTinyMarginBegin" type="Emphasized" press="onPresss"></Button> 
+    <Button id="_IDGenButton1" text="Press" press="onPress" class="sapUiMediumMarginBegin"></Button> 
+    
+     
+     
+     
+     <Panel id="_IDGenPanel" headerText="Employee Info" expandable="false" class = "sapUiTinyMarginTop">
+     <f:SimpleForm id="_IDGenSimpleForm"  editable="true" layout="ResponsiveGridLayout"
+     labelSpanL="3" labelSpanM="3" emptySpanL="0" emptySpanM="0">
+       <f:content>
+       
+       <core:Title id="_IDGenTitle" text="Basic Info"></core:Title>
+       <Label id="_IDGenLabel11" text="Employee Id" required="true"></Label>
+       <Input id="_IDGenInput11" ></Input>
+
+       <Label id="_IDGenLabel12" text="Name" required="true"></Label>
+       <Input id="_IDGenInput12" ></Input>
+
+       <Label id="_IDGenLabel2" text="Designation"></Label>
+       <Input id="_IDGenInput2" ></Input>
+
+
+       <core:Title id="_IDGenTitle2" text="More Info"></core:Title>
+       <Label id="_IDGenLabel3" text="Skill"></Label>
+       <Input id="_IDGenInput3" ></Input>
+
+       <Label id="_IDGenLabel4" text="Email Id"></Label>
+       <Input id="_IDGenInput4" ></Input>
+
+       <Label id="_IDGenLabel5" text="Status"></Label>
+       <Input id="_IDGenInput5" ></Input>
+       </f:content>
+     </f:SimpleForm> 
+     </Panel> 
+
+     <!-- <HBox id="hbox1">
+     <VBox id="vbox1">
+     <Label id="Prd id" text="Product id"></Label>
+     <Input id="Input id"></Input>
+     </VBox>
+     </HBox> -->
+
+     <!-- <FlexBox id="flx1" justifyContent="SpaceBetween" class = "sapUiTinyMarginTop">
+     <Button id="ko1" text="demo1"></Button>
+     <Button id="ko2" text="demo1"></Button>
+     </FlexBox> -->
+
+     <ObjectHeader backgroundDesign="Solid" id="obj" icon="sap-icon://employee" title="Syed" number="230000" numberUnit="INR" class = "sapUiTinyMarginTop">
+     <attributes>
+     <ObjectAttribute id="_IDGenObjectAttribute" title="Employee Id" text="100001"></ObjectAttribute>
+    <ObjectAttribute id="_IDGenObjectDesig" title="Designation" text="Sr. Developer"></ObjectAttribute>
+</attributes>
+<statuses>
+<ObjectStatus id="status1" text="Available" state="Success" inverted="true"></ObjectStatus>
+<ObjectStatus id="status2" text="Contract" state="Error" inverted="true"></ObjectStatus>
+</statuses>
+     </ObjectHeader>
+     <IconTabBar id="icontab">
+     
+     <items>
+     
+    <IconTabFilter id="_IDGenIconTabFilter" icon="sap-icon://information">
+    <!-- <Text id="_IDGenText2" text="This is info tab"></Text> -->
+     <f:SimpleForm id="_IDGenSimpleForm2"  editable="true" layout="ResponsiveGridLayout"
+     labelSpanL="3" labelSpanM="3" emptySpanL="0" emptySpanM="0">
+       <f:content>
+       
+       <core:Title id="_IDGenTitle6" text="Basic Info"></core:Title>
+       <Label id="_IDGenLabel111" text="Employee Id"></Label>
+       <Input id="_IDGenInput111" ></Input>
+
+       <Label id="_IDGenLabel122" text="Name"></Label>
+       <Input id="_IDGenInput122" ></Input>
+
+       <Label id="_IDGenLabel22" text="Designation"></Label>
+       <Input id="_IDGenInput22" ></Input>
+
+
+       <core:Title id="_IDGenTitle22" text="More Info"></core:Title>
+       <Label id="_IDGenLabel33" text="Skill"></Label>
+       <Input id="_IDGenInput33" ></Input>
+
+       <Label id="_IDGenLabel44" text="Email Id"></Label>
+       <Input id="_IDGenInput44" ></Input>
+
+       <Label id="_IDGenLabel55" text="Status"></Label>
+       <Input id="_IDGenInput55" ></Input>
+       </f:content>
+     </f:SimpleForm> 
+    </IconTabFilter>
+
+    <IconTabFilter id="_IDGenIconTabFilter1" icon="sap-icon://notes">
+    <!-- <Text id="_IDGenText3" text="This is nots area"></Text> -->
+
+    <l:Splitter id="splitt">
+     <Button id="_IDGenButton5" text="left side" >
+     <layoutData>
+     <l:SplitterLayoutData id="_IDGenSplitterLayoutData" size="30%"></l:SplitterLayoutData>
+     </layoutData>
+     </Button>
+
+     <Button id="_IDGenButton6" text="left side" >
+     <layoutData>
+     <l:SplitterLayoutData id="_IDGenSplitterLayoutData1" size="70%"></l:SplitterLayoutData>
+     </layoutData>
+     </Button>
+     </l:Splitter>
+    </IconTabFilter>
+
+    <IconTabFilter id="_IDGenIconTabFilte2r" icon="sap-icon://attachment">
+    <Text id="_IDGenText4" text="This is attachment tab"></Text>
+    </IconTabFilter>
+
+     </items>
+     </IconTabBar>
+
+
+    <!-- Table with Odata Model -->
+    <!-- Aggregation binding example -->
+     <Table id="Table1" items="{oModel>/EmployeeSet}"> 
+        <headerToolbar>
+           <Toolbar id="toolbar1">
+              <Title id="_IDGenTitle1" text="Employee List"></Title>
+           
+           </Toolbar>
+        
+        
+        </headerToolbar>
+
+        <columns>
+        <Column id="_IDGenColumn" >
+        <Text id="_IDGenText2" text="Employee Id"></Text>
+        </Column>
+        <Column id="_IDGenColumn1" >
+        <Text id="_IDGenText3" text="Name"></Text>
+        </Column>
+        <Column id="_IDGenColumn2" >
+        <Text id="_IDGenText7" text="Designation"></Text>
+        </Column>
+        <Column id="_IDGenColumn3" >
+        <Text id="_IDGenText8" text="Skill"></Text>
+        </Column>
+        <Column id="_IDGenColumn4" >
+        <Text id="_IDGenText9" text="Email"></Text>
+        </Column>
+        <Column id="_IDGenColumn5" >
+        <Text id="_IDGenText10" text="Status"></Text>
+        </Column>
+        <Column id="_IDGenColumn6" >
+        <Text id="_IDGenText11" text="Salary"></Text>
+        </Column>
+        <Column id="_IDGenColumn7" >
+        <Text id="_IDGenText12" text="Rating"></Text>
+        </Column>
+        </columns>
+        <items>   <!--     it acts like a loop by point to the records -->
+        <ColumnListItem id="_IDGenColumnListItem" >
+           <Text id="_IDGenText5" text="{oModel>Empid}"></Text >    
+              <Text id="_IDGenText6" text="{oModel>Name}"></Text > 
+                <Text id="_IDGenText13" text="{oModel>Desig}"></Text > 
+                   <Text id="_IDGenText14" text="{oModel>Skill}"></Text > 
+                      <Text id="_IDGenText15" text="{oModel>Email}"></Text >   
+                         <!-- <Text id="_IDGenText16" text="{oModel>Status}"></Text >  -->
+                            <Text id="_IDGenText17" text="{oModel>Salary}"></Text > 
+                                <!-- Property binding example -->
+                            <ObjectStatus id="obj1" text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted ="true"></ObjectStatus> 
+                               <Text id="_IDGenText18" text="{path:'oModel>Rating', formatter:'.f.formatRating'}"></Text >    
+   
+        </ColumnListItem>
+        </items>
+     
+     
+     </Table>
+
+
+
+
+
+
+
+
+      <!-- Tbale with Json Model -->
+      <Table id="Table2" items="{empModel>/results}">
+        <headerToolbar>
+           <Toolbar id="toolbar2">
+              <Title id="_IDGenTitle2j" text="Employee List by reading json model"></Title>
+           
+           </Toolbar>
+        
+        
+        </headerToolbar>
+
+        <columns>
+        <Column id="_IDGenColumnj" >
+        <Text id="_IDGenText2j" text="Employee Id"></Text>
+        </Column>
+        <Column id="_IDGenColumn1j" >
+        <Text id="_IDGenText3j" text="Name"></Text>
+        </Column>
+        <Column id="_IDGenColumn2j" >
+        <Text id="_IDGenText7j" text="Designation"></Text>
+        </Column>
+        <Column id="_IDGenColumn3j" >
+        <Text id="_IDGenText8j" text="Skill"></Text>
+        </Column>
+        <Column id="_IDGenColumn4j" >
+        <Text id="_IDGenText9j" text="Email"></Text>
+        </Column>
+        <Column id="_IDGenColumn5j" >
+        <Text id="_IDGenText10j" text="Status"></Text>
+        </Column>
+        <Column id="_IDGenColumn6j" >
+        <Text id="_IDGenText11j" text="Salary"></Text>
+        </Column>
+        <Column id="_IDGenColumn7j" >
+        <Text id="_IDGenText12j" text="Rating"></Text>
+        </Column>
+        </columns>
+        <items>   <!--     it acts like a loop by point to the records -->
+        <ColumnListItem id="_IDGenColumnListItemj" >
+           <Text id="_IDGenText5j" text="{empModel>Empid}"></Text >    
+              <Text id="_IDGenText6j" text="{empModel>Name}"></Text > 
+                <Text id="_IDGenText13j" text="{empModel>Desig}"></Text > 
+                   <Text id="_IDGenText14j" text="{empModel>Skill}"></Text > 
+                      <Text id="_IDGenText15j" text="{empModel>Email}"></Text >   
+                         <Text id="_IDGenText16j" text="{empModel>Status}"></Text > 
+                            <Text id="_IDGenText17j" text="{empModel>Salary}"></Text >  
+                               <Text id="_IDGenText18j" text="{empModel>Rating}"></Text >    
+   
+        </ColumnListItem>
+        </items>
+     
+     
+     </Table>
+
+
+
+
+
+
+
+
+     <!-- List with odata model -->
+     <List id="list1" items="{oModel>/EmployeeSet}" class = "sapUiTinyMarginTop">
+     <headerToolbar>
+           <Toolbar id="toolbar3">
+              <Title id="_IDGenTitle3" text="Employee List by using List control"></Title>
+           
+           </Toolbar>
+     </headerToolbar>
+       <items>
+      <ObjectListItem id="obj2" title="{oModel>Name}" number="{oModel>Salary}" numberUnit="INR">
+      
+      <attributes>
+         <ObjectAttribute id="obhjl1" title="Employee Id" text="{oModel>Empid}"></ObjectAttribute>
+         <ObjectAttribute id="obhjl2" title="Designation" text="{oModel>Desig}"></ObjectAttribute>
+         <ObjectAttribute id="obhjl3" title="Skill" text="{oModel>Skill}"></ObjectAttribute>
+         <ObjectAttribute id="obhjl4" title="Email" text="{oModel>Email}"></ObjectAttribute>
+      </attributes>
+
+      <firstStatus>
+          <!-- Propert Binding -->
+         <!-- <ObjectStatus id="objl5" text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted ="true"></ObjectStatus>  -->
+         <!-- Expression Binding example  -->
+         <ObjectStatus id="objl5" text="{oModel>Status}" state="{=${oModel>Status} === 'PERMANENT'?'Success':'Error'}" inverted ="true"></ObjectStatus> 
+
+      </firstStatus>
+      
+      </ObjectListItem>
+
+       </items>
+
+     </List>
+
+
+
+
+
+
+
+
+     <!-- Multivalue UI Element -->
+     <Panel id="_IDGenPanel2" headerText="Multivalue UI Element" expandable="false" class = "sapUiTinyMarginTop">
+       <f:SimpleForm id="_IDGenSimpleForm3"  editable="true" layout="ResponsiveGridLayout"
+     labelSpanL="3" labelSpanM="3" emptySpanL="6" emptySpanM="6">
+       <f:content>
+       
+       
+       <Label id="Multiv1" text="I am a select box"></Label>
+         <Select id="select1" items="{oModel>/EmployeeSet}" change="onSelectChange" >
+             <items>
+               <core:Item id="_IDGenItem" key="{oModel>Name}" text="{oModel>Name}"></core:Item>
+             </items>
+         </Select>
+         <Label id="Combo1" text="I am a Combo box"></Label>
+         <ComboBox id="comboBox1" items="{oModel>/EmployeeSet}" selectionChange="onSelFromCB" >
+             <items>
+               <core:Item id="_IDGenItem2" key="{oModel>Name}" text="{oModel>Name}"></core:Item>
+             </items>
+         </ComboBox>  
+         <Label id="MultiCombo1" text="I am a Multi-Combo box"></Label>
+         <MultiComboBox id="multiComboBox1" items="{oModel>/EmployeeSet}" selectionFinish="onSelFromMCB" >
+             <items>
+               <core:Item id="_IDGenItem3" key="{oModel>Name}" text="{oModel>Name}"></core:Item>
+             </items>
+         </MultiComboBox>  
+          <Label id="Radio1" text="I am a Radio button"></Label>
+          <RadioButtonGroup id="Rdgrp1" buttons="{oModel>/EmployeeSet}" columns="4" selectedIndex="-1">
+            <buttons>
+              <RadioButton id="rd1" text="{oModel>Name}"></RadioButton>
+            </buttons>
+          </RadioButtonGroup>
+
+            <!-- Exmaple on how to handle universal data files including lookupdata.json and made model in manifest.json -->
+          <Label id="lookupLabel" text="Select Mode of Contact"></Label>
+            <Select id ="lookupSelect" items="{lookupModel>/aModelOfContact}">
+                 <items>
+                     <core:Item id="lookupItem" text="{lookupModel>text}"></core:Item>
+                 </items>
+             </Select>
+           
+          
+         
+
+
+       </f:content>
+     </f:SimpleForm> 
+     </Panel>
+
+
+
+
+
+      <!-- Table with binding context concept -->
+     <Table id="empTable" items="{oModel>/EmployeeSet}" mode="MultiSelect" class = "sapUiTinyMarginTop" > 
+    <headerToolbar>
+        <Toolbar id="empToolbar">
+            <Title id="titleEmployeeList" text="Employee List with Binding Context Concept"></Title>
+            <ToolbarSpacer id="_IDGenToolbarSpacer" ></ToolbarSpacer>
+            <Button id="btnfortable1" text="Get Employee Id(s)" type="Emphasized" press="getEmpId"></Button>
+        </Toolbar>
+    </headerToolbar>
+
+    <columns>
+        <Column id="colEmpId">
+            <Text id="txtEmpId" text="Employee Id"></Text>
+        </Column>
+
+        <Column id="colName">
+            <Text id="txtName" text="Name"></Text>
+        </Column>
+
+        <!-- <Column id="colDesignation">
+            <Text id="txtDesignation" text="Designation"></Text>
+        </Column>
+
+        <Column id="colSkill">
+            <Text id="txtSkill" text="Skill"></Text>
+        </Column>
+
+        <Column id="colEmail">
+            <Text id="txtEmail" text="Email"></Text>
+        </Column>
+
+        <Column id="colStatus">
+            <Text id="txtStatus" text="Status"></Text>
+        </Column>
+
+        <Column id="colSalary">
+            <Text id="txtSalary" text="Salary"></Text>
+        </Column>
+
+        <Column id="colRating">
+            <Text id="txtRating" text="Rating"></Text>
+        </Column> -->
+    </columns>
+
+    <items>
+        <!-- it acts like a loop by point to the records -->
+        <ColumnListItem id="employeeListItem" type ="Navigation" press="onRowPress">
+
+            <Text id="txtEmpValue" text="{oModel>Empid}"></Text>
+
+            <Text id="txtNameValue" text="{oModel>Name}"></Text>
+
+            <!-- <Text id="txtDesigValue" text="{oModel>Desig}"></Text>
+
+            <Text id="txtSkillValue" text="{oModel>Skill}"></Text>
+
+            <Text id="txtEmailValue" text="{oModel>Email}"></Text> -->
+
+           
+
+            <!-- <Text id="txtSalaryValue" text="{oModel>Salary}"></Text> -->
+
+            <!-- Property binding example -->
+            <!-- <ObjectStatus
+                id="objStatus"
+                text="{oModel>Status}"
+                state="{path:'oModel>Status', formatter:'.f.formatStatus'}"
+                inverted="true">
+            </ObjectStatus>
+
+            <Text
+                id="txtRatingValue"
+                text="{path:'oModel>Rating', formatter:'.f.formatRating'}">
+            </Text> -->
+
+        </ColumnListItem>
+    </items>
+
+</Table>
+
+
+ 
+       <!-- Fragment for F4 help -->
+<Panel id="f4helppanel" headerText="Opening fragment for F4 help" expandable="false" class = "sapUiTinyMarginTop">
+     <f:SimpleForm
+    id="simpleFormEmp"
+    editable="true"
+    layout="ResponsiveGridLayout"
+    labelSpanL="3"
+    labelSpanM="3"
+    emptySpanL="6"
+    emptySpanM="6" class = "sapUiTinyMarginTop">
+
+    <f:content>
+
+        <Label
+            id="lblEmpId"
+            text="Select an Employee Id" />
+
+        <Input
+            id="inpEmpId"
+            showValueHelp="true"
+            valueHelpRequest="onPressF4Help" />
+
+    </f:content>
+
+</f:SimpleForm>
+
+</Panel>
+
+
+
+
+     
+
+
+     
+
+
+    </content>
+    <footer>
+    <Bar id="_IDGenBar" >
+    <contentLeft>
+    <Button id="_IDGenButton" text="Go Back" press="onTick"></Button>
+    </contentLeft>
+    <contentRight>
+    <Button id="_IDGenButton2" text="Move to next page" type = "Emphasized" press="onClick"></Button>
+    <Button id="onsumbitbtn" text="Sumbit" type="Emphasized" press="onSumbitpress"></Button>
+    </contentRight>
+    
+    </Bar>
+    </footer>
+    </Page>
+</mvc:View>
