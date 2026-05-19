@@ -177,11 +177,13 @@
                    <Text id="_IDGenText14" text="{oModel>Skill}"></Text > 
                       <Text id="_IDGenText15" text="{oModel>Email}"></Text >   
                          <!-- <Text id="_IDGenText16" text="{oModel>Status}"></Text >  -->
-                            <Text id="_IDGenText17" text="{oModel>Salary}"></Text > 
-                                <!-- Property binding example -->
-                            <ObjectStatus id="obj1" text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted ="true"></ObjectStatus> 
-                               <Text id="_IDGenText18" text="{path:'oModel>Rating', formatter:'.f.formatRating'}"></Text >    
+                          <!-- Property binding example -->
+                             <ObjectStatus id="obj1" text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted ="true"></ObjectStatus> 
+                           
    
+                            <Text id="_IDGenText17" text="{oModel>Salary}"></Text > 
+                               
+                               <Text id="_IDGenText18" text="{path:'oModel>Rating', formatter:'.f.formatRating'}"></Text >    
         </ColumnListItem>
         </items>
      
@@ -430,7 +432,7 @@
 
  
        <!-- Fragment for F4 help -->
-<Panel id="f4helppanel" headerText="Opening fragment for F4 help" expandable="false" class = "sapUiTinyMarginTop">
+<Panel id="f4helppanel" headerText="Filter/Sort Employees" expandable="true" class = "sapUiTinyMarginTop sapUiSmallMarginBeginEnd" width ="auto">
      <f:SimpleForm
     id="simpleFormEmp"
     editable="true"
@@ -441,7 +443,7 @@
     emptySpanM="6" class = "sapUiTinyMarginTop">
 
     <f:content>
-
+      <core:Title id="_IDGenTitle4" text="Filter/Sort Employees" ></core:Title>
         <Label
             id="lblEmpId"
             text="Select an Employee Id" />
@@ -454,8 +456,125 @@
     </f:content>
 
 </f:SimpleForm>
+<FlexBox id="_IDGenFlexBox" justifyContent="End" >
+<Button id="_IDGenButton7" text="Go" type="Emphasized" icon = "sap-icon://accept"  class="sapUiTinyMarginEnd" press="onGoPress"></Button>
+<Button id="_IDGenButton8" text="Reset" type="Reject" icon="sap-icon://reset" class="sapUiTinyMarginEnd"></Button>
+</FlexBox>
 
 </Panel>
+
+
+<Table 
+    id="tblEmployeeMasterView01" 
+    items="{oModel>/EmployeeSet}" 
+    mode="MultiSelect" 
+    class = "sapUiTinyMarginTop sapUiSmallMarginBeginEnd" width ="auto">
+
+    <headerToolbar>
+        <Toolbar id="tlbEmployeeHeader01">
+
+            <Title 
+                id="ttlEmployeeBindingContext01" 
+                text="Employee List with Filter Concept">
+            </Title>
+
+            <ToolbarSpacer id="tspEmployeeHeaderSpacer01">
+            </ToolbarSpacer>
+
+           
+
+        </Toolbar>
+    </headerToolbar>
+
+    <columns>
+
+        <Column id="colEmployeeIdentifier01">
+            <Text 
+                id="txtHeaderEmployeeId01" 
+                text="Employee Id">
+            </Text>
+        </Column>
+
+        <Column id="colEmployeeName01">
+            <Text 
+                id="txtHeaderEmployeeName01" 
+                text="Name">
+            </Text>
+        </Column>
+
+        
+        <Column id="colEmployeeDesignation01">
+            <Text id="txtHeaderDesignation01" text="Designation"></Text>
+        </Column>
+
+        <Column id="colEmployeeSkill01">
+            <Text id="txtHeaderSkill01" text="Skill"></Text>
+        </Column>
+
+        <Column id="colEmployeeEmail01">
+            <Text id="txtHeaderEmail01" text="Email"></Text>
+        </Column>
+
+        <Column id="colEmployeeStatus01">
+            <Text id="txtHeaderStatus01" text="Status"></Text>
+        </Column>
+
+        <Column id="colEmployeeSalary01">
+            <Text id="txtHeaderSalary01" text="Salary"></Text>
+        </Column>
+
+        <Column id="colEmployeeRating01">
+            <Text id="txtHeaderRating01" text="Rating"></Text>
+        </Column>
+       
+
+    </columns>
+
+    <items>
+
+        <!-- it acts like a loop by point to the records -->
+        <ColumnListItem 
+            id="cliEmployeeNavigationRow01" 
+            type="Navigation" 
+            press="onRowPress">
+
+            <Text 
+                id="txtEmployeeIdValue01" 
+                text="{oModel>Empid}">
+            </Text>
+
+            <Text 
+                id="txtEmployeeNameValue01" 
+                text="{oModel>Name}">
+            </Text>
+
+            
+            <Text id="txtEmployeeDesignationValue01" text="{oModel>Desig}"></Text>
+
+            <Text id="txtEmployeeSkillValue01" text="{oModel>Skill}"></Text>
+
+            <Text id="txtEmployeeEmailValue01" text="{oModel>Email}"></Text>
+
+            <Text id="txtEmployeeSalaryValue01" text="{oModel>Salary}"></Text>
+
+            <ObjectStatus
+                id="objEmployeeCurrentStatus01"
+                text="{oModel>Status}"
+                state="{path:'oModel>Status', formatter:'.f.formatStatus'}"
+                inverted="true">
+            </ObjectStatus>
+
+            <Text
+                id="txtEmployeeRatingValue01"
+                text="{path:'oModel>Rating', formatter:'.f.formatRating'}">
+            </Text>
+           
+
+        </ColumnListItem>
+
+    </items>
+
+</Table>
 
 
 

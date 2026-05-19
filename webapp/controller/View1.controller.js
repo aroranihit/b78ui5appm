@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "com/demo/app/project1/model/formatter",
-    "sap/m/MessageBox"
-], (Controller, formatter, MessageBox) => {
+    "sap/m/MessageBox",
+    "sap/ui/model/Filter"
+], (Controller, formatter, MessageBox, Filter) => {
     "use strict";
 
     return Controller.extend("com.demo.app.project1.controller.View1", {
@@ -169,7 +170,18 @@ onEmpIdItemPress: function (oEvent) {
     this.byId("inpEmpId").setValue(empId);
     this._oDialog.close();
 },
-    
+    onGoPress: function () {
+
+        var aFilters = [];
+        var empId = this.byId("inpEmpId").getValue();
+        if (empId !== "") {
+            aFilters.push(new Filter("Empid", "EQ", empId));
+        }
+        this.byId("tblEmployeeMasterView01").getBinding("items").filter(aFilters);
+
+
+
+    }
 
 
         
