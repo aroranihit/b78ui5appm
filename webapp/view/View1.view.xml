@@ -432,15 +432,17 @@
 
  
        <!-- Fragment for F4 help -->
-<Panel id="f4helppanel" headerText="Filter/Sort Employees" expandable="true" class = "sapUiTinyMarginTop sapUiSmallMarginBeginEnd" width ="auto">
+<Panel id="f4helppanel" headerText="Filter/Sort Employees" expandable="false" class = "sapUiTinyMarginTop sapUiSmallMarginBeginEnd" width ="auto">
      <f:SimpleForm
     id="simpleFormEmp"
     editable="true"
     layout="ResponsiveGridLayout"
+    columnsL="3"
+    columnsM="3"
     labelSpanL="3"
     labelSpanM="3"
-    emptySpanL="6"
-    emptySpanM="6" class = "sapUiTinyMarginTop">
+    emptySpanL="0"
+    emptySpanM="0" class = "sapUiTinyMarginTop">
 
     <f:content>
       <core:Title id="_IDGenTitle4" text="Filter/Sort Employees" ></core:Title>
@@ -453,12 +455,52 @@
             showValueHelp="true"
             valueHelpRequest="onPressF4Help" />
 
+        <Label id="lblEmpName" text="Employee Name"></Label>
+        <Input id="inpEmpName"></Input>
+
+        <core:Title id="_IDGenTitle5" text="Sort"></core:Title>
+        <Label id="_IDGenLabel6" text="Sort Field"></Label>
+        <ComboBox id="_IDGenComboBox" >
+        <items>
+        <core:Item id="_IDGenItem4" key="Empid" text="Employee Id"></core:Item>
+        <core:Item id="_IDGenItem5" key="Name" text="Name"></core:Item>
+        </items>
+        </ComboBox>
+        <Label id="_IDGenLabel7" text="Sort Order"></Label>
+
+        <RadioButtonGroup id="_IDGenRadioButtonGroup" selectedIndex="-1" columns = '2'>
+        <buttons>
+        <RadioButton id="_IDGenRadioButton1" text="Ascending" />
+        <RadioButton id="_IDGenRadioButton2" text="Descending" />
+        </buttons>
+        
+        </RadioButtonGroup>
+
+        <core:Title id="_IDGenTitlegrp1" text="Grouping"></core:Title>
+        <Label id="_IDGenLabelgrp1" text="Group Field"></Label>
+        <ComboBox id="_IDGenComboBoxgrp1" >
+        <items>
+        <core:Item id="_IDGenItem4grp1" key="Skill" text="Skill"></core:Item>
+        <core:Item id="_IDGenItem5grp1" key="Desig" text="Designation"></core:Item>
+        </items>
+        </ComboBox>
+        <Label id="_IDGenLabel7grp1" text=" Group Order"></Label>
+
+        <RadioButtonGroup id="_IDGenRadioButtonGroupgrp1" selectedIndex="-1" columns = '2'>
+        <buttons>
+        <RadioButton id="_IDGenRadioButton1grp1" text="Ascending" />
+        <RadioButton id="_IDGenRadioButton2grp1" text="Descending" />
+        </buttons>
+        
+        </RadioButtonGroup>
+
+
     </f:content>
 
 </f:SimpleForm>
 <FlexBox id="_IDGenFlexBox" justifyContent="End" >
 <Button id="_IDGenButton7" text="Go" type="Emphasized" icon = "sap-icon://accept"  class="sapUiTinyMarginEnd" press="onGoPress"></Button>
-<Button id="_IDGenButton8" text="Reset" type="Reject" icon="sap-icon://reset" class="sapUiTinyMarginEnd"></Button>
+<Button id="_IDGenButton8" text="Reset" type="Reject" icon="sap-icon://reset" class="sapUiTinyMarginEnd" press="onResetPress"></Button>
 </FlexBox>
 
 </Panel>

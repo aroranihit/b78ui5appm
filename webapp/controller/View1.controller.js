@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "com/demo/app/project1/model/formatter",
     "sap/m/MessageBox",
-    "sap/ui/model/Filter"
-], (Controller, formatter, MessageBox, Filter) => {
+    "sap/ui/model/Filter",
+    "sap/ui/model/Sorter"
+], (Controller, formatter, MessageBox, Filter, Sorter) => {
     "use strict";
 
     return Controller.extend("com.demo.app.project1.controller.View1", {
@@ -173,14 +174,63 @@ onEmpIdItemPress: function (oEvent) {
     onGoPress: function () {
 
         var aFilters = [];
+        var aSorters = [];
         var empId = this.byId("inpEmpId").getValue();
+        var empName = this.byId("inpEmpName").getValue();
         if (empId !== "") {
             aFilters.push(new Filter("Empid", "EQ", empId));
         }
+        if (empName !== "") {
+            aFilters.push(new Filter("Name", "Contains", empName));
+        }
         this.byId("tblEmployeeMasterView01").getBinding("items").filter(aFilters);
 
+        //gruping logic it should take priority over sorting
+        var groupField = this.byId("_IDGenComboBoxgrp1").getSelectedKey();
+        var groupOrder = this.byId("_IDGenRadioButtonGroupgrp1").getSelectedIndex();
+
+        if (groupField !== "" && groupOrder !== -1) {
+            aSorters.push(new Sorter(groupField, (groupOrder === 0)?false:true ,function(oBindingContext){
+
+                if(groupField === "Skill"){
+                    var skill = oBindingContext.getObject().Skill;
+                    return{
+                        key: skill,
+                        text: skill
+                    }
 
 
+        }      else if(groupField === "Desig"){
+                    var desig = oBindingContext.getObject().Desig;
+                    return{
+                        key: desig,
+                        text: desig
+                    }
+        }
+    
+    
+    }
+        ));
+        }
+        //sorting logic
+        var sortField = this.byId("_IDGenComboBox").getSelectedKey();
+        var sortOrder = this.byId("_IDGenRadioButtonGroup").getSelectedIndex();
+
+        if (sortField !== "" && sortOrder !== -1) {
+            aSorters.push(new Sorter(sortField, (sortOrder === 0)?false:true));
+        }
+        this.byId("tblEmployeeMasterView01").getBinding("items").sort(aSorters);
+    },
+
+    onResetPress: function () {
+        this.byId("inpEmpId").setValue("");
+        this.byId("inpEmpName").setValue("");
+        this.byId("_IDGenComboBox").setSelectedKey("");
+        this.byId("_IDGenRadioButtonGroup").setSelectedIndex(-1);
+            this.byId("_IDGenComboBoxgrp1").setSelectedKey("");
+        this.byId("_IDGenRadioButtonGroupgrp1").setSelectedIndex(-1);
+        this.byId("tblEmployeeMasterView01").getBinding("items").filter([]);
+         this.byId("tblEmployeeMasterView01").getBinding("items").sort([]);
     }
 
 
