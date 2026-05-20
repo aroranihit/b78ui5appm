@@ -130,6 +130,9 @@ sap.ui.define([
         onRowPress: function (oEvent) {
 
             var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
+            this.getOwnerComponent().getRouter().navTo("RouteView2",{
+                empId:empId
+            });
         },
 
         getEmpId: function () {

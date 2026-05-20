@@ -1,10 +1,56 @@
 <mvc:View controllerName="com.demo.app.project1.controller.View2"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
 
-    <Page id="_IDGenPage" title="HI I am View 2" showNavButton="true" navButtonPress="onpiche">
+    <Page id="_IDGenPage" title="Employee Specific Details" showNavButton="true" navButtonPress="onpiche">
     <content>
-    <Text id="_IDGenText" text="Hi I am New Page" class="sapUiMediumMarginTop sapUiMediumMarginBegin"></Text>
+
+    <ObjectHeader id="_IDGenObjectHeader" title="{oModel>Name}" number="{oModel>Salary}" numberUnit="INR">
+     <attributes>
+       <ObjectAttribute id="_IDGenObjectAttribute1" title="Employee Id" text="{oModel>Empid}"></ObjectAttribute>
+       <ObjectAttribute id="_IDGenObjectAttribute2" title="Designation" text="{oModel>Desig}"></ObjectAttribute>
+     </attributes>
+     <statuses>
+       <ObjectStatus
+                id="objEmployeeCurrentStatus011"
+                text="{oModel>Status}"
+                
+                inverted="true">
+            </ObjectStatus>
+     </statuses>
+    </ObjectHeader>
+
+    
+  <!-- read the data of above table in this section by using binding context and show the details of selected employee in below form -->
+<IconTabBar id="_IDGenIconTabBar" >
+<items>
+<IconTabFilter id="_IDGenIconTabFilter2" icon="sap-icon://information" >
+   <f:SimpleForm id="oSFEmpdetails" editable="false">
+   <f:content>
+   <Label id="_IDGenLabel8" text="Employee Id"></Label>
+   <Text id="_IDGenTextrd8" text="{oModel>Empid}"></Text>
+    <Label id="_IDGenLabel9" text="Name"></Label>
+    <Text id="_IDGenTextrd9" text="{oModel>Name}"></Text>
+    <Label id="_IDGenLabel10" text="Designation"></Label>
+    <Text id="_IDGenTextrd10" text="{oModel>Desig}"></Text>
+    <Label id="_IDGenLabelrd11" text="Skill"></Label>
+    <Text id="_IDGenTextrd11" text="{oModel>Skill}"></Text>
+    <Label id="_IDGenLabelrd12" text="Email"></Label>
+    <Text id="_IDGenTextrd12" text="{oModel>Email}"></Text>
+    <Label id="_IDGenLabel13" text="Status"></Label>
+    <Text id="_IDGenTextrd13" text="{oModel>Status}"></Text>
+    <Label id="_IDGenLabel14" text="Salary"></Label>
+    <Text id="_IDGenTextrd14" text="{oModel>Salary}"></Text>
+    <Label id="_IDGenLabel15" text="Rating"></Label>
+    <Text id="_IDGenTextrd15" text="{oModel>Rating}"></Text>
+   </f:content>
+ </f:SimpleForm>
+ </IconTabFilter>
+</items>
+</IconTabBar>
+ 
+
     </content>
 
     

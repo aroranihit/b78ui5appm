@@ -106,7 +106,7 @@
         },
         {
           "name": "RouteView2",
-          "pattern": "secondview",
+          "pattern": "secondview/{empId}",
           "target": [
             "TargetView2"
           ]
