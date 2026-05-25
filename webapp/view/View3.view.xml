@@ -1,0 +1,45 @@
+<mvc:View controllerName="com.demo.app.project1.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+
+    <Page id="_IDGenPage3" title="Details for New Employee" showNavButton="true" navButtonPress="onpiche">
+    <content>
+    <f:SimpleForm id="form3" title="Employee Details" editable="true" layout="ResponsiveGridLayout"
+    labelSpanL="2" labelSpanM="2" emptySpanL="6" emptySpanM="6">
+    <f:content>
+    <Label id="_IDGenLabel16" text="Employee Id"></Label>
+    <Input id="empId"></Input>
+    <Label id="_IDGenLabel17" text="Employee Name"></Label>
+    <Input id="empName"></Input>
+    <Label id="_IDGenLabel18" text="Designation"></Label>
+    <Input id="empDesignation"></Input>
+    <Label id="_IDGenLabel19" text="Skill"></Label>
+    <Input id="empSkill"></Input>
+    <Label id="_IDGenLabel20" text="Email Id"></Label>
+    <Input id="empEmail"></Input>
+    <Label id="_IDGenLabel21" text="Status"></Label>
+    <Input id="empStatus"></Input>
+    <Label id="_IDGenLabel211" text="Salary"></Label>
+    <Input id="empSalary"></Input>
+    <Label id="_IDGenLabel212" text="Rating"></Label>
+    <Input id="empRating"></Input>
+    </f:content>
+    </f:SimpleForm>
+
+    </content>
+
+    <footer>
+    <Bar id="_IDGenBar2" >
+    <contentRight>
+      <Button id="btnv3" text="Save" icon="sap-icon://save" press="onSave"></Button>
+    </contentRight>
+    </Bar>
+    </footer>
+
+    
+
+  
+    </Page>
+   
+</mvc:View>

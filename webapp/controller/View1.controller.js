@@ -234,10 +234,46 @@ onEmpIdItemPress: function (oEvent) {
         this.byId("_IDGenRadioButtonGroupgrp1").setSelectedIndex(-1);
         this.byId("tblEmployeeMasterView01").getBinding("items").filter([]);
          this.byId("tblEmployeeMasterView01").getBinding("items").sort([]);
+    },
+
+    onCreateEmployee: function () {
+        this.getOwnerComponent().getRouter().navTo("RouteView3");
+    },
+    
+    onEditEmployee: function () {
+        var selRow = this.byId("tblEmployeeMasterView01").getSelectedItem();
+        if (selRow == null){
+            MessageBox.error("Please select a row to edit");
+            return;
+        }
+        var empId = selRow.getBindingContext("oModel").getObject().Empid;
+        this.getOwnerComponent().getRouter().navTo("RouteView4",{
+            empId:empId
+        });
+    },
+
+    onDeleteEmployee: function () {
+        var selRow = this.byId("tblEmployeeMasterView01").getSelectedItem();
+        if (selRow == null){
+            MessageBox.error("Please select a row to delete");
+            return;
+        }
+        var empId = selRow.getBindingContext("oModel").getObject().Empid;
+
+         var oModel = this.getOwnerComponent().getModel("oModel");
+            oModel.remove("/EmployeeSet('" + empId + "')", {
+                success: function (req,res) {
+                  
+                        MessageBox.success("Employee deleted successfully");
+                    
+                },
+                error: function (oError) {
+                    MessageBox.error(JSON.parse(oError.responseText).error.message.value);
+                }
+            });
+
+
     }
-
-
-        
 
 
 

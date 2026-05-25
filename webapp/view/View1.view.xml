@@ -523,6 +523,11 @@
             <ToolbarSpacer id="tspEmployeeHeaderSpacer01">
             </ToolbarSpacer>
 
+            <Button id="_IDGenButton9" text="Create Employee" icon="sap-icon://add" type="Emphasized" press="onCreateEmployee"></Button>
+            <Button id="_IDGenButton10" text="Edit Employee" icon="sap-icon://edit" type="Emphasized" press="onEditEmployee"></Button>
+            <Button id="_IDGenButton11" text="Delete Employee" icon="sap-icon://delete" type="Emphasized" press="onDeleteEmployee"></Button>
+
+
            
 
         </Toolbar>

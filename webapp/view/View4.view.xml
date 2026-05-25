@@ -1,0 +1,45 @@
+<mvc:View controllerName="com.demo.app.project1.controller.View4"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+
+    <Page id="_IDGenPage4" title="Updating Employee Details" showNavButton="true" navButtonPress="onpiche">
+    <content>
+    <f:SimpleForm id="form4" title="Employee Details" editable="true" layout="ResponsiveGridLayout"
+    labelSpanL="2" labelSpanM="2" emptySpanL="6" emptySpanM="6">
+    <f:content>
+    <Label id="_IDGenLabel213" text="Employee Id"></Label>
+    <Input id="uempId" value="{oModel>Empid}" enabled="false"></Input>
+    <Label id="_IDGenLabel214" text="Employee Name"></Label>
+    <Input id="uempName" value="{oModel>Name}"></Input>
+    <Label id="_IDGenLabel215" text="Designation"></Label>
+    <Input id="uempDesignation" value="{oModel>Desig}"></Input>
+    <Label id="_IDGenLabel216" text="Skill"></Label>
+    <Input id="uempSkill" value="{oModel>Skill}"></Input>
+    <Label id="_IDGenLabel217" text="Email Id"></Label>
+    <Input id="uempEmail" value="{oModel>Email}"></Input>
+    <Label id="_IDGenLabel218" text="Status"></Label>
+    <Input id="uempStatus" value="{oModel>Status}"></Input>
+    <Label id="_IDGenLabel219" text="Salary"></Label>
+    <Input id="uempSalary" value="{oModel>Salary}"></Input>
+    <Label id="_IDGenLabel220" text="Rating"></Label>
+    <Input id="uempRating" value="{oModel>Rating}"></Input>
+    </f:content>
+    </f:SimpleForm>
+
+    </content>
+
+    <footer>
+    <Bar id="_IDGenBar3" >
+    <contentRight>
+      <Button id="btnv4" text="Save" icon="sap-icon://save" press="onSave"></Button>
+    </contentRight>
+    </Bar>
+    </footer>
+
+    
+
+  
+    </Page>
+   
+</mvc:View>
